@@ -34,9 +34,7 @@ int mode(int arr[], int n){
 	return max_number;
 }
 double sd(int arr[], int n, double avg){
-	for(int i =0; i< n; i++){
-		
-	}
+	return 0;
 }
 int main(){
 	//int n = 5;
