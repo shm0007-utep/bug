@@ -1,31 +1,35 @@
+/*
+	2-a> avg.c code calculates average of the array x
+
+*/
 #include<stdio.h>
-//This program calculates the average of the scores of 5 students.
-double avg(int arr[] , int n){
+#include<math.h>
+//This program calculates the average,mode, and SD of the scores of 5 students.
+double get_avg(int arr[5], int n){
 	double avg= 0.0;
-	
 	double sum = 0.0;
 	for (int i = 0 ;i < n; ++i)
 	{
-		sum +=x[i];
-		printf("for i = %d, sum = %lf \n ", i, sum );
+		sum +=arr[i];
+	
 		//more for checking if the right sum is being 
 		//computed.
 	} // for-loop
 	avg = sum/n;
 	return avg;
 }
-int mode(int arr[], int n){
+int get_mode(int arr[5], int n){
 	//Need to adjut the size accoding to the obersvations 
-	int freq[10];
+	int freq[11];
     
-    for(int i =0 ; i< 10; i++)
+    for(int i =0 ; i< 11; i++)
         freq[i] = 0;
     for(int i =0; i< n; i++){
         freq[arr[i]]++;
     }
     int max_number = 0;
     int max_value = freq[0];
-    for(int i = 0; i< 3; i++){
+    for(int i = 0; i< 11; i++){
         if(freq[i] > max_value){
             max_value = freq[i];
             max_number = i;
@@ -33,8 +37,13 @@ int mode(int arr[], int n){
     }
 	return max_number;
 }
-double sd(int arr[], int n, double avg){
-	return 0;
+double get_sd(int arr[5], int n, double avg){
+	double sd  = 0.0;
+	for(int i =0; i< n; i++){
+		sd += ((avg -  arr[i]) *(avg -  arr[i]) ); 
+	}
+	sd = sqrt(sd/n);
+	return sd;
 }
 int main(){
 	//int n = 5;
@@ -48,11 +57,16 @@ int main(){
 	x[2]= 5;
 	x[3]= 9;
 	x[4]= 10;
-	double average = avg(x,5);
-	double mode = mode(x,5);
-	double std_deviation  = sd(x,5,average);
+	double average = get_avg(x,5);
+	
+	int mode = get_mode(x,5);
+	double std_deviation  = get_sd(x,5,average);
 
 
-	printf("the average score is: %lf \n", avg);
+	printf("the average score is: %lf\n", average);
+	printf("the mode is: %d\n", mode);
+	printf("the standerd deviation is: %lf\n", std_deviation);
+	
+	
 
 }
