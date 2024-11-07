@@ -1,7 +1,3 @@
-/*
-	2-a> avg.c code calculates average of the array x
-
-*/
 #include<stdio.h>
 #include<math.h>
 //This program calculates the average,mode, and SD of the scores of 5 students.

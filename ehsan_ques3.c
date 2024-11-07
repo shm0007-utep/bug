@@ -3,17 +3,14 @@
 #define SIZE 20
 
 #include<math.h>
-//This program calculates the average of the scores of 5 students.
+//This program calculates the average, mode and SD of the scores of 20 students from file.
 double get_avg(int arr[SIZE]){
 	double avg= 0.0;
 	double sum = 0.0;
 	for (int i = 0 ;i < SIZE; ++i)
 	{
 		sum +=arr[i];
-	
-		//more for checking if the right sum is being 
-		//computed.
-	} // for-loop
+	}
 	avg = sum/SIZE;
 	return avg;
 }
